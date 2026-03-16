@@ -1,0 +1,43 @@
+.done {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.done-container {
+  width: 100%;
+  max-width: 1500px; /* Samain sama container project lo */
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.done-text {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -5px;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-family: var(--font-primary, sans-serif);
+}
+
+.done-dot {
+  color: #0099ff;
+}
+
+@media (max-width: 768px) {
+  .done-text {
+    letter-spacing: -2px;
+  }
+}

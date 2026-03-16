@@ -1,0 +1,204 @@
+.tech {
+  padding: 60px 0;
+  background-color: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  border-top: 3px solid var(--bg-secondary);
+}
+
+.tech-container {
+  width: 85%;
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+/* --- BAGIAN KIRI --- */
+.tech-left {
+  flex: 0.6;
+}
+
+.tech-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 0.75; 
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  background: linear-gradient(to right, var(--accent-color), #6c5ce7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.tech-title .stroke-text {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-primary);
+  -webkit-text-fill-color: initial; 
+  opacity: 0.6;
+}
+
+.tech-desc {
+  max-width: 280px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* --- BAGIAN KANAN (GRID) --- */
+.tech-right {
+  flex: 1.4;
+  position: relative;
+}
+
+.tech-bg-text {
+  position: absolute;
+  top: -40px;
+  right: -10px;
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  opacity: 0.02;
+  z-index: -1;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: none;
+}
+
+.tech-item {
+  padding: 15px;
+  aspect-ratio: 2.2 / 1; 
+  border-top: 1.5px solid var(--border-color); /* Hanya garis atas sesuai konsep awal */
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.tech-item:hover {
+  background-color: var(--card-bg);
+  transform: translateY(-3px);
+}
+
+.tech-item-header {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tech-id {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0.3;
+}
+
+.tech-icon {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  opacity: 0.3;
+}
+
+.tech-item-body {
+  margin-top: 10px;
+}
+
+.tech-name {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.tech-cat {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+}
+
+.tech-wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0; /* Hilangkan gap kecil di bawah gambar */
+  z-index: 10;
+  margin-bottom: -5px;
+}
+
+.tech-wave-container svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- RESPONSIVE --- */
+
+@media screen and (max-width: 1024px) {
+  .tech-container { width: 90%; gap: 40px; }
+  .tech-title { font-size: 3.5rem; }
+}
+
+@media screen and (max-width: 580px) {
+  .tech { padding: 40px 0; }
+
+  .tech-container {
+    width: 92%; /* Dilebarin biar nggak sempit */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    padding-top: 50px;
+  }
+
+  .tech-title {
+    font-size: 2.8rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom kesamping */
+    gap: 0; /* Gap 0 biar garis border-top-nya kelihatan nyambung rapi */
+  }
+
+  .tech-item {
+    aspect-ratio: 1.8 / 1; /* Proporsi biar teks muat */
+    padding: 10px;
+    border-top: 1.5px solid var(--border-color); /* Tetap garis atas aja */
+    border-radius: 0; /* Pastikan nggak ada lekukan */
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .tech-name {
+    font-size: 1rem;
+  }
+
+  .tech-bg-text {
+    display: none;
+  }
+}

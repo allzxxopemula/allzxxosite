@@ -1,0 +1,204 @@
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Font Family */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Warna Dasar */
+  --bg-color: #ffffff;
+  --bg-color-rgb: 255, 255, 255;
+
+  --bg-accent: #0099ff;
+  --bg-accent-rgb: 0, 153, 255;
+  
+  /* Warna Baru untuk Section About (Putih Keabuan) */
+  --bg-secondary: #f5f5f5;
+  --bg-secondary-rgb: 252, 252, 252;
+
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --accent-color: #007bff;
+  --accent-hover: #0056b3;
+  --card-bg: #f8f9fa;
+  --border-color: #e0e0e0;
+  --transition-speed: 0.3s;
+}
+
+[data-theme='dark'] {
+  /* Background Hero Tetap Hitam */
+  --bg-color: #000000;
+  --bg-color-rgb: 0, 0, 0;
+
+  /* Warna Baru untuk Section About (Gelap Kebiruan) */
+  --bg-secondary: #030509; 
+  --bg-secondary-rgb: 10, 15, 26;
+
+  --bg-accent: #00061a; 
+  --bg-accent-dark: #001a33;
+
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent-color: #1e3a8a;
+  --accent-hover: #3b82f6;
+  --card-bg: #161b22;
+  --border-color: #30363d;
+}
+
+/* Reset Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Tambahkan ini di App.css kamu */
+
+/* Tumpukan Section */
+/* Pastikan body nggak ada overflow-x yang ganggu */
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-secondary);
+}
+
+/* Layering */
+.hero-wrapper {
+  position: relative;
+  z-index: 100; /* Paling depan di awal */
+  background-color: var(--bg-color);
+}
+
+.about-wrapper {
+  position: relative;
+  z-index: 10; /* Diam di bawah, bakal ditimpa Project */
+}
+
+.projects-wrapper {
+  position: relative;
+  z-index: 20; /* Naik menimpa About */
+  background-color: var(--bg-color);
+}
+
+.tech-wrapper {
+  position: relative;
+  z-index: 30; /* Naik menimpa Projects */
+  background-color: var(--bg-secondary);
+}
+
+.journey-wrapper {
+  position: relative;
+  z-index: 40; /* Naik menimpa Tech */
+  background-color: var(--bg-color);
+}
+
+.music-wrapper {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  height: 100vh;
+  /* KUNCI: Kasih warna background di sini! Sesuaikan dengan warna temamu */
+  background-color: var(--bg-secondary, #000); 
+  /* Atau kalau tema kamu putih biru clean, mungkin background-nya putih/biru muda */
+}
+
+.done-wrapper {
+  position: relative;
+  z-index: 100; /* Harus lebih tinggi dari music */
+  width: 100%;
+  min-height: 100vh;
+  /* KUNCI: Done juga wajib punya background biar ketutup pas nindih */
+  background-color: var(--bg-color, #fff); 
+}
+
+/* Contact Wrapper */
+.contact-wrapper {
+  position: relative;
+  /* Z-index harus sama atau lebih tinggi dari .done-wrapper 
+     supaya tidak tersembunyi di bawahnya */
+  z-index: 100; 
+  
+  /* Pastikan punya background agar konten di bawahnya (music) tidak tembus */
+  background-color: var(--bg-color); 
+  
+  /* Mengikuti permintaanmu: tinggi auto */
+  width: 100%;
+  height: auto;
+  
+  /* Tambahkan sedikit border top jika ingin pemisah yang lebih jelas 
+     dari section Done jika warnanya sama-sama terang */
+}
+
+/* Supaya wrapper buatan GSAP gak ikutan putih */
+.pin-spacer {
+  background-color: transparent !important;
+}
+
+
+/* Intro Loader utama */
+.intro-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999; /* Sangat tinggi agar di atas segalanya */
+  transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+  pointer-events: none; /* Biar tidak ganggu klik selama animasi */
+}
+
+/* Saat animasi keluar (naik ke atas) */
+.intro-loader.exit {
+  transform: translateY(-100%);
+}
+
+.intro-text {
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  display: flex;
+  animation: zoomAndStay 2s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+}
+
+.text-white { color: #000000; }
+.text-blue { color: #007bff; }
+
+@keyframes zoomAndStay {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* App tetap normal tanpa perubahan opacity */
+.App {
+  width: 100%;
+  position: relative;
+}
