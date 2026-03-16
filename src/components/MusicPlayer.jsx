@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../css/MusicPlayer.css';
 
 const songs = [
-  { id: 0, title: "Malu Malu", artist: "DIA & INDAHKUS", src: "/audio/malu-malu.mp3", cover: "https://cdn.medcom.id/dynamic/content/2026/02/21/1805998/Qil0qHkBZo.jpg?w=1024" },
-  { id: 1, title: "Garam Madu", artist: "Tenxi & Naykilla", src: "/audio/garam-madu.mp3", cover: "https://i1.sndcdn.com/artworks-l9lm8ITzbBpbCgjk-GMX9Kw-t500x500.jpg" },
-  { id: 2, title: "So Asu", artist: "Naykilla", src: "/audio/so-asu.mp3", cover: "https://i.scdn.co/image/ab67616d0000b273bc3ac83da4a6bda98247e694" },
-  { id: 3, title: "Sency", artist: "Dia ft Tenxi", src: "/audio/dia.mp3", cover: "https://cdn.medcom.id/dynamic/content/2026/02/21/1805998/Qil0qHkBZo.jpg?w=1024" },
-  { id: 4, title: "Hilang", artist: "Shinji Sho · Chaeroel", src: "/audio/hilang.mp3", cover: "https://i.ytimg.com/vi/4-bWKwgwj7k/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBEf2AHjYUzI5SBbs1YGSbzR8--AA" },
-  { id: 5, title: "Rindu Pelukmu", artist: "Chaeroel Ft. 4Loven", src: "/audio/rindu-peluk.mp3", cover: "https://i.ytimg.com/vi/DBLpO-HzdtM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLACUf610ATxW1QIYag6FaCBBsFxVw" },
+  { id: 0, title: "Malu Malu", artist: "DIA & INDAHKUS", src: "audio/malu-malu.mp3", cover: "https://cdn.medcom.id/dynamic/content/2026/02/21/1805998/Qil0qHkBZo.jpg?w=1024" },
+  { id: 1, title: "Garam Madu", artist: "Tenxi & Naykilla", src: "audio/garam-madu.mp3", cover: "https://i1.sndcdn.com/artworks-l9lm8ITzbBpbCgjk-GMX9Kw-t500x500.jpg" },
+  { id: 2, title: "So Asu", artist: "Naykilla", src: "audio/so-asu.mp3", cover: "https://i.scdn.co/image/ab67616d0000b273bc3ac83da4a6bda98247e694" },
+  { id: 3, title: "Sency", artist: "Dia ft Tenxi", src: "audio/dia.mp3", cover: "https://cdn.medcom.id/dynamic/content/2026/02/21/1805998/Qil0qHkBZo.jpg?w=1024" },
+  { id: 4, title: "Hilang", artist: "Shinji Sho · Chaeroel", src: "audio/hilang.mp3", cover: "https://i.ytimg.com/vi/4-bWKwgwj7k/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBEf2AHjYUzI5SBbs1YGSbzR8--AA" },
+  { id: 5, title: "Rindu Pelukmu", artist: "Chaeroel Ft. 4Loven", src: "audio/rindu-peluk.mp3", cover: "https://i.ytimg.com/vi/DBLpO-HzdtM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLACUf610ATxW1QIYag6FaCBBsFxVw" },
 ];
 
 const MusicPlayer = () => {
