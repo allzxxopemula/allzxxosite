@@ -57,7 +57,7 @@ const Hero = () => {
           <div className="hero-glow"></div>
           <div className="hero-img-wrapper">
             <img 
-              src="alz%20logo/alz.png" 
+              src="alz-logo/alz.png" 
               alt="Developer Illustration" 
               className="hero-img"
             />

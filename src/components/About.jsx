@@ -26,7 +26,7 @@ const About = () => {
             <div className="about-glow"></div>
             <div className="image-frame">
                 <img  data-aos="fade-up" data-aos-duration="800"
-                  src="alz%20logo/alz.png" 
+                  src="alz-logo/alz.png" 
                   alt="About Allzxxo" 
                   className="about-img-floating" 
                 />
