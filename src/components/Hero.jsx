@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { Youtube, Instagram, Github } from 'lucide-react'; 
-import '../css/hero.css';
+import '../css/Hero.css';
 
 const Hero = () => {
   return (

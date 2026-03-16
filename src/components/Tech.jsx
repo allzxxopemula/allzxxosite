@@ -12,7 +12,7 @@ import {
   FaRobot   // Representatif untuk ChatGPT
 } from 'react-icons/fa'; 
 import { SiTailwindcss, SiGooglegemini } from 'react-icons/si'; 
-import '../css/tech.css';
+import '../css/Tech.css';
 
 const Tech = () => {
   const techData = [

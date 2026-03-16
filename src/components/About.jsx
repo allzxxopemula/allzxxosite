@@ -2,7 +2,7 @@ import React from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Award, Briefcase, ChevronRight } from 'lucide-react';
-import '../css/about.css';
+import '../css/About.css';
 
 const About = () => {
   const { ref, inView } = useInView({

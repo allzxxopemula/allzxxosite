@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ExternalLink, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import '../css/projects.css';
+import '../css/Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
