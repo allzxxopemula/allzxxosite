@@ -78,6 +78,18 @@ body {
   background-color: var(--bg-secondary);
 }
 
+html, body {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;     /* Firefox */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none !important;             /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
 /* Layering */
 .hero-wrapper {
   position: relative;
@@ -204,12 +216,3 @@ body {
 }
 
 
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* Menghilangkan scrollbar untuk Internet Explorer, Edge, dan Firefox */
-body {
-  -ms-overflow-style: none;  /* IE dan Edge */
-  scrollbar-width: none;  /* Firefox */
-}
