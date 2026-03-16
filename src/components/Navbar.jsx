@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 import gsap from 'gsap';
-import '../css/navbar.css';
+import '../css/Navbar.css';
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
