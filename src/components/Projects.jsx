@@ -8,11 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Projects = ({ onShowMore }) => { // Tambahkan props onShowMore agar bisa refresh dari App.js
   const projectData = [
-    { id: "01", title: "Portofolio", desc: "A personal portfolio website designed with a clean and modern aesthetic.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://allzxxopemula.github.io/AllzxxoWeb/", img: "/imgproject/porto.jpg" },
-    { id: "02", title: "Class Web", desc: "A collaborative classroom website featuring student profiles.", tags: ["REACT", "JAVASCRIPT", "GSAP"], link: "https://allzxxopemula.github.io/x-rpl/", img: "/imgproject/kelas.jpg" },
-    { id: "03", title: "Allzxxo Ai", desc: "An intuitive web assistant providing smart, real-time answers and fluid dialogue within a distraction-free environment.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://alzai-delta.vercel.app/", img: "/imgproject/ai.jpg" },
-    { id: "04", title: "Next Project", desc: "Coming soon project to fill the space.", tags: ["REACT", "TAILWIND"], link: "#", img: "/imgproject/1.jpg" },
-    { id: "05", title: "Final Project", desc: "The last project in this list.", tags: ["NODE JS", "DATABASE"], link: "#", img: "/imgproject/1.jpg" }
+    { id: "01", title: "Portofolio", desc: "A personal portfolio website designed with a clean and modern aesthetic.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://allzxxopemula.github.io/AllzxxoWeb/", img: "imgproject/porto.jpg" },
+    { id: "02", title: "Class Web", desc: "A collaborative classroom website featuring student profiles.", tags: ["REACT", "JAVASCRIPT", "GSAP"], link: "https://allzxxopemula.github.io/x-rpl/", img: "imgproject/kelas.jpg" },
+    { id: "03", title: "Allzxxo Ai", desc: "An intuitive web assistant providing smart, real-time answers and fluid dialogue within a distraction-free environment.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://alzai-delta.vercel.app/", img: "imgproject/ai.jpg" },
+    { id: "04", title: "Next Project", desc: "Coming soon project to fill the space.", tags: ["REACT", "TAILWIND"], link: "#", img: "imgproject/1.jpg" },
+    { id: "05", title: "Final Project", desc: "The last project in this list.", tags: ["NODE JS", "DATABASE"], link: "#", img: "imgproject/1.jpg" }
   ];
 
   const [visibleProjects, setVisibleProjects] = useState(3);
