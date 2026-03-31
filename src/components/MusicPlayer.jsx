@@ -26,15 +26,24 @@ const MusicPlayer = () => {
 
   const currentSong = songs[currentIndex];
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
+useEffect(() => {
+  if (audioRef.current) {
+    // Simpan status apakah lagu lagi diputar atau tidak
+    const wasPlaying = isPlaying;
+    
+    audioRef.current.pause(); // Stop lagu sebelumnya
+    audioRef.current.load();  // Muat lagu baru berdasarkan currentIndex
+    audioRef.current.currentTime = 0;
+
+    // Hanya play otomatis jika sebelumnya user memang sudah menekan tombol play
+    if (wasPlaying) {
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
         playPromise.then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       }
     }
-  }, [currentIndex]);
+  }
+}, [currentIndex]);
 
   const getCardStyle = (index) => {
     const total = songs.length;
