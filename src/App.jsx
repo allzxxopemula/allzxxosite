@@ -163,31 +163,7 @@ function App() {
         .to(".about-stats", { y: -150, ease: "none" }, 0)
         .to(".about-cta", { y: -50, opacity: 0, ease: "none" }, 0);
 
-      gsap.utils.toArray(".project-item").forEach((item) => {
-        const number = item.querySelector(".project-number");
-        const title = item.querySelector(".project-title");
-        const desc = item.querySelector(".project-desc");
-        const tags = item.querySelector(".project-tags");
-        const viewLink = item.querySelector(".view-project");
-        const img = item.querySelector("img");
 
-        const projectTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            start: "top 85%", 
-            end: "bottom 15%",   
-            scrub: 1.5,            
-          }
-        });
-
-        projectTl
-          .fromTo(number, { y: 60 }, { y: -120, ease: "none" }, 0)
-          .fromTo(title, { y: 50 }, { y: -100, ease: "none" }, 0)
-          .fromTo(desc, { y: 40 }, { y: -90, ease: "none" }, 0)
-          .fromTo(tags, { y: 30 }, { y: -80, ease: "none" }, 0)
-          .fromTo(viewLink, { y: 20 }, { y: -70, ease: "none" }, 0)
-          .fromTo(img, { scale: 1 }, { scale: 1, ease: "none" }, 0);
-      });
 
       // Lakukan refresh terakhir setelah semua timeline terdaftar
       ScrollTrigger.refresh();

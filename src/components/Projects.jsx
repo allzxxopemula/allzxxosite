@@ -11,7 +11,7 @@ const Projects = ({ onShowMore }) => { // Tambahkan props onShowMore agar bisa r
     { id: "01", title: "Portofolio", desc: "A personal portfolio website designed with a clean and modern aesthetic.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://allzxxopemula.github.io/AllzxxoWeb/", img: "imgproject/porto.jpg" },
     { id: "02", title: "Class Web", desc: "A collaborative classroom website featuring student profiles.", tags: ["REACT", "JAVASCRIPT", "GSAP"], link: "https://allzxxopemula.github.io/x-rpl/", img: "imgproject/kelas.jpg" },
     { id: "03", title: "Allzxxo Ai", desc: "An intuitive web assistant providing smart, real-time answers and fluid dialogue within a distraction-free environment.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://alzai-delta.vercel.app/", img: "imgproject/ai.jpg" },
-    { id: "04", title: "Next Project", desc: "Coming soon project to fill the space.", tags: ["REACT", "TAILWIND"], link: "#", img: "imgproject/1.jpg" },
+    { id: "04", title: "Allzxxo Finance", desc: "A finance application to record income and manage savings efficiently.", tags: ["PHP", "CSS", "MYSQL"], link: "https://allzxxofinance.page.gd", img: "imgproject/alzf.png" },
     { id: "05", title: "Final Project", desc: "The last project in this list.", tags: ["NODE JS", "DATABASE"], link: "#", img: "imgproject/1.jpg" }
   ];
 
@@ -40,14 +40,14 @@ const Projects = ({ onShowMore }) => { // Tambahkan props onShowMore agar bisa r
           trigger: item,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.5, // Gunakan 1.5 agar lebih smooth dan sinkron dengan App.js
+          scrub: 1.5,
         }
       })
       .to(number, { y: -120, ease: "none" }, 0)
       .to(title, { y: -100, ease: "none" }, 0)
-      .to(desc, { y: -90, ease: "none" }, 0)   // <--- Perbaikan: Daftarkan animasi
-      .to(tags, { y: -80, ease: "none" }, 0)   // <--- Perbaikan: Daftarkan animasi
-      .to(link, { y: -70, ease: "none" }, 0)   // <--- Perbaikan: Daftarkan animasi
+      .to(desc, { y: -90, ease: "none" }, 0)  
+      .to(tags, { y: -80, ease: "none" }, 0)   
+      .to(link, { y: -70, ease: "none" }, 0)   
       .to(img, { y: -20, ease: "none" }, 0);
     });
 

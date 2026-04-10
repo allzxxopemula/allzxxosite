@@ -1,30 +1,32 @@
+/* --- SECTION JOURNEY BASE --- */
 .journey {
-  padding: 120px 5%;
+  padding: 120px 0;
   background-color: var(--bg-accent);
   position: relative;
   overflow: hidden;
 }
+
+/* --- JOURNEY BARS (TETAP SAMA) --- */
 .journey-bars-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Tinggi penuh layar */
-  display: flex; /* Biar berjejer ke kanan */
+  height: 100vh;
+  display: flex;
   pointer-events: none;
   z-index: 100;
 }
 
 .j-bar {
-  flex: 1; /* Bagi rata lebar layar */
-  background-color: var(--bg-secondary); /* Biru tema kamu */
+  flex: 1;
+  background-color: var(--bg-secondary);
   height: 100%;
-  transform: scaleY(0); /* Awalnya sembunyi di bawah */
-  transform-origin: bottom; /* Tumbuh ke atas */
-  /* Opsional: beri sedikit border agar terlihat tekstur batangnya saat naik */
+  transform: scaleY(0);
+  transform-origin: bottom;
 }
 
-/* --- TAMBAHAN AWAN PERSIS GAMBAR (RANDOM POSISI) START --- */
+/* --- CLOUD ANIMATION (STRUKTUR TETAP) --- */
 .cloud-wrapper {
   position: absolute;
   top: 0;
@@ -39,11 +41,10 @@
   position: absolute;
   width: 500px;
   height: 250px;
-  filter: blur(8px);
+  filter: blur(15px); /* Dipertajam sedikit blurnya agar lebih soft */
   animation: cloudSlide 30s infinite linear;
 }
 
-/* Biar awan berubah pudar di dark mode */
 [data-theme='dark'] .c-bulat {
   opacity: 0.08;
   filter: blur(15px);
@@ -51,18 +52,16 @@
 
 .c-bulat {
   position: absolute;
-  background: radial-gradient(circle, rgba(200, 235, 255, 1) 0%, rgba(135, 206, 250, 0) 80%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 80%);
   border-radius: 50%;
 }
 
-/* Susunan Bulatan Awan */
 .c1 { width: 180px; height: 180px; top: 50px; left: 0px; opacity: 0.7; }
 .c2 { width: 220px; height: 220px; top: 0px; left: 100px; opacity: 1; }
 .c3 { width: 160px; height: 160px; top: 60px; left: 240px; opacity: 0.8; }
 .c4 { width: 130px; height: 130px; top: 90px; left: 330px; opacity: 0.6; }
 .c5 { width: 100px; height: 100px; top: 110px; left: 410px; opacity: 0.5; }
 
-/* SEBARAN POSISI RANDOM */
 .pos-1 { top: 5%; left: -5%; transform: scale(0.8); animation-duration: 40s; }
 .pos-2 { top: 25%; right: -10%; transform: scale(1.1); animation-duration: 35s; }
 .pos-3 { bottom: 15%; left: 10%; transform: scale(0.9); animation-duration: 45s; opacity: 0.6; }
@@ -74,54 +73,65 @@
   50% { transform: translateX(80px) translateY(-20px); }
   100% { transform: translateX(0); }
 }
-/* --- TAMBAHAN AWAN END --- */
 
+/* --- JUDUL --- */
 .journey-label {
   text-align: center;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 5px;
-  margin-bottom: 100px;
-  color: white;
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 120px;
+  color: #fff;
   position: relative;
   z-index: 2;
+  text-transform: uppercase;
+
 }
 
+/* --- TIMELINE CORE --- */
 .journey-timeline {
   position: relative;
-  max-width: 1100px;
+  width: 85%;
+  max-width: 1440px;
   margin: 0 auto;
   z-index: 2;
 }
 
-/* Garis Lurus Tengah */
 .center-line {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 1px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   z-index: 1;
 }
 
+/* PROGRESS LINE MODERN */
 .progress-line {
   position: absolute;
   left: 50%;
-  /* Pake translate buat nengahin aja */
   transform: translateX(-50%); 
   transform-origin: top;
   width: 3px;
   height: 100%;
-  background: #ffffff;
   z-index: 2;
-  /* Hapus scaleY di sini, kita set lewat JS aja biar sinkron */
+  transition: all 0.3s ease;
+  
+  /* Neon Gradient Effect */
+  background: linear-gradient(to bottom, #fff, var(--accent-color), #6c5ce7);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme='dark'] .progress-line {
+  background: linear-gradient(to bottom, var(--accent-color), #6c5ce7, transparent);
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
 }
 
 .journey-row {
   display: flex;
   width: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   position: relative;
   z-index: 2;
 }
@@ -129,71 +139,88 @@
 .journey-row.left { justify-content: flex-start; padding-right: 50%; }
 .journey-row.right { justify-content: flex-end; padding-left: 50%; }
 
+/* DOT INDICATOR */
 .journey-dot {
   position: absolute;
   left: 50%;
   top: 45px;
   transform: translateX(-50%);
-  width: 24px;
-  height: 24px;
-  background: var(--bg-accent);
-  border: 4px solid var(--bg-color);
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 4px solid var(--accent-color);
   border-radius: 50%;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  transition: all 0.4s ease;
 }
 
-.dot-inner {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
+.journey-row:hover .journey-dot {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 25px var(--accent-color);
 }
 
+/* --- CARD MODERN PROFESSIONAL --- */
 .journey-card {
   width: 90%;
   background: var(--bg-color);
   padding: 40px;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  border: 3px solid var(--text-secondary);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 28px;
+  /* Soft Glassmorphism look */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.journey-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 5px;
+  background: linear-gradient(to right, var(--accent-color), #6c5ce7);
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .journey-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
+  border-color: var(--accent-color);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.journey-card:hover::before {
+  opacity: 1;
 }
 
 .card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .card-title {
   font-size: 1.8rem;
-  font-weight: 900;
-    background: linear-gradient(to right, var(--accent-color), #6c5ce7);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
 }
 
 .card-year {
-  background: var(--accent-color);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  background: var(--bg-secondary);
+  color: var(--accent-color);
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: 1px solid var(--border-color);
 }
 
 .card-info {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
 }
@@ -203,17 +230,18 @@
   align-items: center;
   gap: 10px;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .info-icon {
   color: var(--accent-color);
+  font-size: 1.1rem;
 }
 
 .card-desc {
   font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 25px;
 }
 
@@ -224,93 +252,52 @@
 }
 
 .card-tags span {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  padding: 6px 15px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  background: rgba(108, 92, 231, 0.08);
+  color: var(--accent-color);
+  padding: 6px 16px;
+  border-radius: 10px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  transition: 0.3s;
 }
 
+.journey-card:hover .card-tags span {
+  background: var(--bg-color);
+  border-color: var(--accent-color);
+}
 
-
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .journey {
-    padding: 80px 4%;
-  }
-
+  .journey { padding: 80px 0; }
+  .journey-timeline { width: 90%; }
+  
   .journey-label {
-    font-size: 0.8rem;
+    font-size: 2.2rem;
     margin-bottom: 60px;
-    letter-spacing: 3px;
   }
 
-.center-line, 
-  .progress-line { 
+  .center-line, .progress-line { 
     left: 20px !important; 
-    width: 2px;
+    transform: none; 
   }
 
-  .journey-row {
-    margin-bottom: 50px;
-  }
-
-  .journey-row.left, 
-  .journey-row.right {
-    padding-left: 45px;
+  .journey-row { margin-bottom: 60px; }
+  .journey-row.left, .journey-row.right {
+    padding-left: 50px;
     padding-right: 0;
     justify-content: flex-start;
   }
 
-  .journey-dot {
-    left: 20px;
-  }
+  .journey-dot { left: 20px; transform: none; }
 
   .journey-card {
     width: 100%;
-    padding: 20px;
-    border-radius: 16px;
+    padding: 30px 20px;
   }
 
-  .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-
-  .card-year {
-    font-size: 0.7rem;
-    padding: 4px 10px;
-  }
-
-  .card-info {
-    gap: 4px;
-    margin-bottom: 12px;
-  }
-
-  .info-item {
-    font-size: 0.8rem;
-  }
-
-  .card-desc {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 15px;
-  }
-
-  .card-tags {
-    gap: 6px;
-  }
-
-  .card-tags span {
-    font-size: 0.65rem;
-    padding: 4px 10px;
-  }
-
-  .cloud-group {
-    transform: scale(0.4);
-  }
+  .card-title { font-size: 1.4rem; }
+  .card-top { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
-
-

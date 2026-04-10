@@ -1,11 +1,11 @@
 .about {
-  padding: 120px 0;
+  padding: 120px 0; /* Dikembalikan sedikit agar tidak terlalu jauh gap-nya */
   min-height: 100vh;
   display: flex;
   align-items: center;
   background-color: var(--bg-secondary);
   position: relative;
-  overflow: hidden; /* Menjaga shape tidak bocor ke samping */
+  overflow: hidden;
 }
 
 /* --- BACKGROUND TEXT OVERLAY --- */
@@ -13,26 +13,22 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Gunakan translate saja, pastikan tidak ada padding/margin liar */
   transform: translate(-50%, -50%);
-  font-size: 14.1rem; 
+  font-size: 15rem; /* Disesuaikan agar tidak terlalu memenuhi layar */
   font-weight: 900;
   color: var(--text-primary);
   opacity: 0.03; 
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
-  
-  /* Perbaikan Center: Tambahkan text-indent senilai letter-spacing */
   letter-spacing: 20px;
-  text-indent: 20px; /* Ini kuncinya supaya spasi di kiri dan kanan seimbang */
-  
+  text-indent: 20px; 
   user-select: none;
-  width: 100%;       /* Pastikan lebar full agar text-align berfungsi */
+  width: 100%;
   text-align: center;
 }
 
-/* --- ANIMASI SHAPE RANDOM (SAMA DENGAN HERO) --- */
+/* --- ANIMASI SHAPE RANDOM --- */
 .about-shape {
   position: absolute;
   filter: blur(80px);
@@ -43,7 +39,6 @@
   transition: all 1s ease;
 }
 
-/* Cahaya Kiri dengan Animasi */
 .shape-left {
   top: 20%;
   left: -100px;
@@ -53,7 +48,6 @@
   animation: move-random 20s infinite alternate ease-in-out !important;
 }
 
-/* Cahaya Kanan dengan Animasi */
 .shape-right {
   bottom: 10%;
   right: -80px;
@@ -79,12 +73,12 @@
 
 /* --- Sinkronisasi Kontainer --- */
 .about-container {
-  width: 80%;
-  max-width: 1200px;
+  width: 85%; /* Sesuai dengan Hero: 85% */
+  max-width: 1440px; /* Sesuai dengan Hero: 1440px */
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px; 
   position: relative;
   z-index: 10;
 }
@@ -93,7 +87,7 @@
 .about-top-content {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 120px;
+  gap: 80px; /* Gap disesuaikan agar proporsional */
   align-items: center;
 }
 
@@ -113,7 +107,7 @@
 }
 
 .about-img-floating {
-  width: 350px;
+  width: 380px; /* Sesuai dengan Hero: 380px */
   height: auto;
   object-fit: contain;
   z-index: 5;
@@ -121,16 +115,16 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* --- TEXT CONTENT (Font-size +0.1rem) --- */
+/* --- TEXT CONTENT (Font-size Adjusted) --- */
 .about-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: rgba(0, 123, 255, 0.1);
   color: var(--accent-color);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 50px;
-  font-size: 0.9rem; /* Dari 0.8rem */
+  font-size: 0.95rem; 
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -139,11 +133,11 @@
 }
 
 .about-title {
-  font-size: 2.6rem; /* Dari 2.5rem */
+  font-size: 2.9rem; /* Sesuai dengan Hero: 2.9rem */
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.1;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .about-title span {
@@ -158,59 +152,27 @@
   position: relative;
   display: inline-block;
   z-index: 1;
-  padding: 0 2px;
+  padding: 0 4px;
   color: var(--text-primary);
   font-weight: 800;
 }
 
-.name-highlight::before,
-.name-highlight-alt::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 100%;
-  height: 40%;
-  border-radius: 2px;
-  z-index: -1;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.is-visible .name-highlight::before {
-  transform: scaleX(1) rotate(-1deg);
-}
-
-.is-visible .name-highlight-alt::before {
-  transform: scaleX(1) rotate(1deg);
-  transition-delay: 0.30s;
-}
-
-.name-highlight::before {
-  background: rgba(0, 123, 255, 0.25);
-}
-
-.name-highlight-alt::before {
-  background: rgba(108, 92, 231, 0.25);
-}
-
 .about-description {
-  font-size: 1.05rem; /* Dari 0.95rem */
+  font-size: 1.1rem; /* Sesuai dengan Hero: 1.1rem */
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 460px;
+  max-width: 520px; 
   margin-bottom: 25px;
 }
 
 .about-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--accent-color);
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.05rem; /* Dari 0.95rem */
+  font-size: 1.05rem; 
   transition: var(--transition-speed);
 }
 
@@ -219,7 +181,7 @@
   opacity: 0.8;
 }
 
-/* --- STAT CARDS MODERN (Font-size +0.1rem) --- */
+/* --- STAT CARDS MODERN (Font-size Adjusted) --- */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -230,7 +192,7 @@
   background: var(--card-bg);
   border: 1.5px solid var(--border-color);
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -240,14 +202,14 @@
 .stat-card:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
-  box-shadow: 0 10px 15px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15);
 }
 
 .stat-icon-box {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   background: rgba(0, 123, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,24 +217,29 @@
   flex-shrink: 0;
 }
 
+.stat-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
 .stat-number {
   display: block;
-  font-size: 1.6rem; /* Dari 1.5rem */
+  font-size: 1.65rem; 
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .stat-label {
   display: block;
-  font-size: 0.9rem; /* Dari 0.8rem */
+  font-size: 0.95rem; 
   color: var(--text-secondary);
   font-weight: 600;
 }
 
-/* --- RESPONSIVE MOBILE (Tetap Seperti Semula) --- */
+/* --- RESPONSIVE MOBILE --- */
 @media screen and (max-width: 768px) {
   .about-background-text {
-    font-size: 3rem;
+    font-size: 4rem;
     letter-spacing: 10px;
   }
 
@@ -300,69 +267,27 @@
     align-items: center;
   }
 
-  .about-title { font-size: 1.5rem; }
-  .about-description { font-size: 0.85rem; padding: 0 15px; }
+  .about-title { font-size: 1.8rem; }
+  .about-description { font-size: 0.95rem; padding: 0 15px; max-width: 100%; }
 
-  .about-img-floating { width: 220px; }
+  .about-img-floating { width: 250px; }
 
   .about-stats {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
 
   .stat-card {
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    padding: 15px 20px;
     gap: 15px; 
     min-height: 70px;
   }
 
-  .stat-icon-box {
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-  }
-
-  .stat-icon-box svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .stat-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .stat-number { 
-    font-size: 1.1rem; 
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .stat-label { 
-    font-size: 0.7rem; 
-    font-weight: 500;
-    opacity: 0.8;
-    margin: 0;
-  }
-
-  .about-shape {
-    opacity: 0.2;
-    filter: blur(50px);
-    width: 150px;
-    height: 150px;
-    animation-duration: 10s;
-  }
-
-  .shape-left { top: 5%; left: -50px; }
-  .shape-right { bottom: 5%; right: -50px; }
+  .stat-number { font-size: 1.3rem; }
+  .stat-label { font-size: 0.8rem; }
 }
 
 @keyframes float {

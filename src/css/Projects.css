@@ -1,14 +1,12 @@
 .projects {
-  padding: 100px 0;
+  padding: 120px 0;
   background-color: var(--bg-primary);
   min-height: 100vh;
   position: relative;
-  /* Tambahan agar grid tidak bocor keluar section */
   overflow: hidden; 
 }
 
-/* --- TAMBAHAN LAYER GRID --- */
-/* --- TAMBAHAN LAYER GRID (LEBIH TEGAS) --- */
+/* --- TAMBAHAN LAYER GRID (Sesuai Resolusi PC) --- */
 .projects::before {
   content: "";
   position: absolute;
@@ -16,29 +14,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  
-  /* Garis tetap 1.5px agar tegas */
   background-image: 
     linear-gradient(var(--border-color) 1.5px, transparent 1.5px),
     linear-gradient(90deg, var(--border-color) 1.5px, transparent 1.5px);
-  
-  /* UKURAN KOTAK: Ubah dari 45px ke 90px agar lebih lebar */
   background-size: 90px 90px; 
-  
-  /* Masking: Dibikin lebih luas (60%) supaya kotak lebar-lebar ini kelihatan lebih banyak */
   mask-image: radial-gradient(circle at center, white 60%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, white 60%, transparent 100%);
-  
   opacity: 0.5; 
   z-index: 0;
   pointer-events: none;
 }
 
 .projects-container {
+  /* SINKRONISASI: 85% & 1440px */
   width: 85%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
-  /* Memastikan konten di atas grid */
   position: relative;
   z-index: 1;
 }
@@ -49,16 +40,16 @@
 }
 
 .projects-badge {
-  font-size: 0.75rem;
+  font-size: 0.85rem; /* Sedikit naik dari 0.75rem */
   letter-spacing: 4px;
   color: var(--accent-color);
   font-weight: 700;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .projects-main-title {
-  font-size: 3rem;
+  font-size: 3.2rem; /* Sesuai dengan Hero & About: 3.2rem */
   font-weight: 900;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -68,16 +59,16 @@
 .projects-list {
   display: flex;
   flex-direction: column;
-  gap: 150px; /* Jarak antar project */
+  gap: 120px; /* Jarak disesuaikan agar tidak terlalu renggang di PC */
 }
 
 .project-item {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 80px; /* Gap diperlebar untuk monitor besar */
 }
 
-/* --- LOGIKA SELANG SELING --- */
+/* LOGIKA SELANG SELING */
 .project-item:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -92,100 +83,53 @@
 
 /* --- TYPOGRAPHY --- */
 .project-number {
-  font-size: 3rem;
+  font-size: 2.8rem; /* Sedikit dikecilkan agar proporsional */
   font-weight: 900;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 25px; /* Jarak antara angka dan garis sedikit ditambah */
+  gap: 25px;
   line-height: 1;
   margin-bottom: 10px;
 }
 
-/* Garis yang lebih panjang dan tebal */
 .project-number::after {
   content: "";
-  height: 4px; /* Ditebelin dari 2px ke 4px */
-  width: 180px; /* Diperpanjang dari 100px ke 180px */
-  background-color: var(--accent-color); /* Pakai warna accent biar lebih "pop" */
+  height: 4px;
+  width: 150px; /* Lebar garis disesuaikan */
+  background-color: var(--accent-color);
   display: inline-block;
-  border-radius: 2px; /* Biar ujung garisnya gak terlalu tajam */
-  opacity: 1; /* Dibikin solid biar kelihatan jelas */
-}
-
-/* --- VIEW MORE BUTTON --- */
-.view-more-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-  position: relative;
-  z-index: 10;
-}
-
-.view-more-btn {
-  background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--accent-color);
-  padding: 15px 40px;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 4px; /* Sedikit rounded biar modern */
-}
-
-.view-more-btn:hover {
-  background: var(--accent-color);
-  color: white;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
-}
-
-.view-more-btn svg {
-  transition: transform 0.4s ease;
-}
-
-.view-more-btn:hover svg {
-  transform: translateY(3px); /* Efek panah memantul pelan */
-}
-
-/* Penyesuaian untuk Mobile */
-@media screen and (max-width: 768px) {
-  .project-number::after {
-    width: 80px; /* Di HP jangan kepanjangan biar gak nabrak */
-    height: 3px;
-  }
+  border-radius: 2px;
+  opacity: 1;
 }
 
 .project-title {
-  font-size: 3rem;
+  font-size: 2.9rem; /* SINKRON: Sama dengan Hero Role & About Title */
   font-weight: 800;
-  color: var(--font-primary);
+  color: var(--text-primary);
   margin-bottom: 15px;
 }
 
 .project-desc {
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* SINKRON: Sama dengan Hero/About Description */
   color: var(--text-secondary);
+  line-height: 1.7;
   margin-bottom: 25px;
-  max-width: 400px;
+  max-width: 500px; /* Diperlebar sedikit agar tidak terlalu sempit */
 }
 
 /* --- TAGS & BUTTON --- */
 .project-tags {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .tag {
-  padding: 6px 14px;
-  border: 1px solid var(--border-color);
-  font-size: 0.75rem;
+  padding: 8px 16px;
+  border: 1.5px solid var(--border-color);
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: 1px;
@@ -198,7 +142,7 @@
   font-weight: 800;
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.05rem; /* Ukuran naik sedikit */
   transition: 0.3s;
 }
 
@@ -207,17 +151,14 @@
   color: var(--accent-color);
 }
 
-/* --- IMAGE FRAME (Persegi Panjang & Overflow Hidden) --- */
+/* --- IMAGE FRAME --- */
 .project-img-wrapper {
   width: 100%;
-  /* Rasio 16:9 biar jadi persegi panjang cinematic */
   aspect-ratio: 16 / 9; 
   border: 2px solid var(--accent-color);
-  padding: 5px; /* Ruang antara border dan gambar */
+  padding: 8px; /* Padding ditingkatkan sedikit */
   background-color: var(--card-bg);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* KUNCINYA DI SINI: */
   overflow: hidden; 
   position: relative;
   display: flex;
@@ -228,119 +169,93 @@
 .project-img-wrapper img {
   width: 100%;
   height: 100%;
-  /* object-fit: cover biar gambar menuhi area tanpa gepeng */
   object-fit: cover; 
   display: block;
   transition: transform 0.6s ease;
 }
 
-/* Efek Zoom dikit pas di-hover biar keren */
 .project-item:hover .project-img-wrapper img {
-  transform: scale(1.1);
+  transform: scale(1.08); /* Zoom diperhalus */
 }
 
-.project-item:hover .project-img-wrapper {
-  box-shadow: 0 20px 40px rgba(0, 123, 255, 0.15); /* Tambah shadow tipis */
+/* --- VIEW MORE BUTTON --- */
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  position: relative;
+  z-index: 10;
 }
 
-/* --- RESPONSIVE MOBILE (HP) --- */
+.view-more-btn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--accent-color);
+  padding: 16px 45px;
+  font-size: 1.1rem; /* Sedikit diperbesar */
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.view-more-btn:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
+}
+
+/* --- RESPONSIVE MOBILE --- */
 @media screen and (max-width: 768px) {
   .projects {
     padding: 60px 0;
   }
 
   .projects-container {
-    width: 90%; /* Lebih lebar di HP biar gak sempit */
-  }
-
-  .projects-header {
-    text-align: center; 
-    margin-bottom: 50px;
+    width: 85%; /* Tetap konsisten 85% */
   }
 
   .projects-main-title {
-    font-size: 2.1rem; /* Ukuran title utama dikecilkan */
+    font-size: 2.1rem;
   }
 
   .projects-list {
-    gap: 80px; /* Jarak antar project lebih rapat di HP */
+    gap: 80px;
   }
 
   .project-item, 
   .project-item:nth-child(even) {
-    flex-direction: column; /* Gambar di atas, teks di bawah */
-    align-items: flex-start; /* Konten rata kiri */
-    text-align: left; /* Teks rata kiri */
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
     gap: 25px;
   }
 
-  /* Typography HP (Dikecilkan) */
   .project-number {
-    font-size: 2.5rem; /* Angka 01, 02 dikecilkan */
-    margin-bottom: 5px;
+    font-size: 2.5rem;
+  }
+
+  .project-number::after {
+    width: 80px;
+    height: 3px;
   }
 
   .project-title {
-    font-size: 1.8rem; /* Judul project dikecilkan */
-    margin-bottom: 10px;
+    font-size: 1.8rem;
   }
 
   .project-desc {
-    font-size: 0.95rem; /* Deskripsi dikecilkan */
+    font-size: 0.95rem;
     max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .project-tags {
-    flex-wrap: wrap; /* Supaya tag gak kepotong kalau panjang */
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .tag {
-    padding: 4px 10px;
-    font-size: 0.65rem;
-  }
-
-  .view-project {
-    font-size: 0.8rem;
-  }
-
-  /* Gambar HP */
-  .project-visual {
-    width: 100%; 
-  }
-
-  .project-img-wrapper {
-    padding: 6px; /* Padding border biru dikecilkan */
-  }
-
-.view-more-container {
-    margin-top: 50px;
-  }
-  
-.view-more-container {
-    margin-top: 40px; /* Jarak atas sedikit dikurangi agar compact */
   }
 
   .view-more-btn {
-    /* Ukuran kecil dan tidak full width */
-    width: auto; 
-    padding: 8px 20px; 
-    
-    /* Font diperkecil */
-    font-size: 0.75rem; 
-    font-weight: 700;
-    letter-spacing: 1px;
-    
-    /* Border disesuaikan agar tidak terlalu tebal untuk ukuran kecil */
-    border-width: 1.5px; 
-    gap: 8px;
-  }
-
-  /* Perkecil icon di dalam button */
-  .view-more-btn svg {
-    width: 14px;
-    height: 14px;
+    padding: 12px 30px; 
+    font-size: 0.9rem;
   }
 }
