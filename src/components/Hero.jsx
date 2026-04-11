@@ -20,7 +20,7 @@ const Hero = () => {
           <h1 className="hero-role">
             <span className="typewriter-text">
               <Typewriter
-                words={['Frontend Developer', 'UI/UX Designer', 'Creative Coder']}
+                words={['Frontend Developer', 'Vibe Coder', 'Creative Coder']}
                 loop={0}
                 cursor={false} // Matikan kursor bawaan agar tidak transparan
                 typeSpeed={70}
