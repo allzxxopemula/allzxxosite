@@ -290,7 +290,7 @@
   .center-line, 
   .progress-line { 
     left: 15px !important; 
-    transform: translateX(-50%) !important; /* Memastikan garis benar-benar di tengah titik */
+    transform: translateX(-50%); /* Memastikan garis benar-benar di tengah titik */
   }
 
   .journey-row { 
@@ -309,14 +309,14 @@
   .journey-dot { 
     left: 15px; 
     top: 35px; /* Menyesuaikan posisi vertikal agar sejajar dengan teks judul kartu */
-    transform: translateX(-50%) !important; 
+    transform: translateX(-50%); 
     width: 16px; 
     height: 16px;
   }
 
   /* Memperbaiki hover effect di mobile agar tidak goyang */
   .journey-row:hover .journey-dot {
-    transform: translateX(-50%) scale(1.2) !important;
+    transform: translateX(-50%) scale(1.2);
   }
 
   .journey-card {
