@@ -265,80 +265,116 @@
 
 /* --- RESPONSIVE --- */
 /* --- RESPONSIVE FIX --- */
-@media (max-width: 768px) {
+/* --- RESPONSIVE MOBILE OPTIMIZED (768px and below) --- */
+@media screen and (max-width: 768px) {
   .journey { 
-    padding: 60px 0; 
-  }
-  
-  .journey-timeline { 
-    width: 90%; 
-    margin-left: 15px; /* Memberi ruang sedikit di kiri */
+    padding: 60px 0 80px 0; 
   }
   
   .journey-label {
     font-size: 2.2rem;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    letter-spacing: 0px;
   }
 
-  /* Garis diletakkan di sisi kiri dengan posisi fix */
+  .journey-timeline { 
+    width: 90%; 
+    margin-left: 20px; /* Jarak pas agar garis tidak mepet layar */
+  }
+
+  /* Garis Timeline dipindah ke Sisi Kiri */
   .center-line, 
   .progress-line { 
-    left: 15px !important; 
-    transform: translateX(-50%); /* Memastikan garis benar-benar di tengah titik */
+    left: 10px !important; 
+    transform: translateX(-50%); 
   }
 
   .journey-row { 
-    margin-bottom: 50px; 
+    margin-bottom: 45px; 
+    width: 100%;
+    display: block; /* Agar alur lebih stabil */
   }
 
-  /* Reset padding agar konten tidak menabrak garis */
+  /* Semua Row (Left & Right) jadi rata kiri */
   .journey-row.left, 
   .journey-row.right {
-    padding-left: 45px; /* Jarak dari garis ke kartu */
+    padding-left: 35px; /* Jarak kartu dari garis */
     padding-right: 0;
     justify-content: flex-start;
   }
 
-  /* Titik (Dot) diselaraskan dengan garis */
+  /* Dot Indicator Presisi di Garis */
   .journey-dot { 
-    left: 15px; 
-    top: 35px; /* Menyesuaikan posisi vertikal agar sejajar dengan teks judul kartu */
+    left: 10px; 
+    top: 25px; /* Sejajar dengan teks judul */
     transform: translateX(-50%); 
-    width: 16px; 
-    height: 16px;
+    width: 14px; 
+    height: 14px;
+    border-width: 3px;
   }
 
-  /* Memperbaiki hover effect di mobile agar tidak goyang */
   .journey-row:hover .journey-dot {
     transform: translateX(-50%) scale(1.2);
   }
 
+  /* Card Modern & Slim */
   .journey-card {
     width: 100%;
-    padding: 25px 20px;
-    border-radius: 20px; /* Sedikit lebih kecil agar manis di layar HP */
+    padding: 24px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   }
 
   .card-top { 
-    flex-direction: column; 
+    flex-direction: column-reverse; /* Tahun di atas, judul di bawahnya */
     align-items: flex-start; 
-    gap: 12px; 
-    margin-bottom: 15px;
+    gap: 10px; 
+    margin-bottom: 18px;
   }
 
   .card-title { 
-    font-size: 1.3rem; 
-    order: 2; /* Judul di bawah tahun */
+    font-size: 1.25rem; 
+    letter-spacing: -0.3px;
   }
 
   .card-year {
-    order: 1; /* Tahun di atas judul agar lebih terbaca kronologinya */
-    padding: 4px 12px;
+    padding: 5px 12px;
     font-size: 0.75rem;
+    border-radius: 8px;
   }
 
+  /* Detail Info (Lokasi/Instansi) */
+  .card-info {
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+
+  .info-item {
+    font-size: 0.85rem;
+  }
+
+  .info-icon {
+    font-size: 1rem;
+  }
+
+  /* Deskripsi Teks */
   .card-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
     margin-bottom: 20px;
+    color: var(--text-secondary);
+  }
+
+  /* Tags/Skills */
+  .card-tags {
+    gap: 8px;
+  }
+
+  .card-tags span {
+    font-size: 0.65rem;
+    padding: 5px 12px;
+    border-radius: 8px;
   }
 }
+
+/* Penyesuaian Extra untuk HP Sangat Kecil */

@@ -86,8 +86,9 @@
 /* --- ROW ATAS: IMAGE & CONTENT --- */
 .about-top-content {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 80px; /* Gap disesuaikan agar proporsional */
+  /* FIX: Dibalik dari Hero dan dipasang minmax agar persis 100% sama ukurannya */
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); 
+  gap: 50px; 
   align-items: center;
 }
 
@@ -95,6 +96,26 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%; /* Tambahkan ini */
+}
+
+.image-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.about-img-floating {
+  width: 100%; /* Diubah ke 100% */
+  max-width: 380px; /* Dikunci keras di 380px agar sama dengan Hero */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 5;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+  animation: float 6s ease-in-out infinite;
 }
 
 .about-glow {
@@ -106,14 +127,7 @@
   filter: blur(50px);
 }
 
-.about-img-floating {
-  width: 380px; /* Sesuai dengan Hero: 380px */
-  height: auto;
-  object-fit: contain;
-  z-index: 5;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
-  animation: float 6s ease-in-out infinite;
-}
+
 
 /* --- TEXT CONTENT (Font-size Adjusted) --- */
 .about-badge {
@@ -237,60 +251,133 @@
 }
 
 /* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE ABOUT OPTIMIZED --- */
+/* --- ABOUT RESPONSIVE MOBILE OPTIMIZED --- */
 @media screen and (max-width: 768px) {
-  .about-background-text {
-    font-size: 4rem;
-    letter-spacing: 10px;
-  }
-
   .about {
-    padding: 100px 0 40px 0;
+    padding: 60px 0 80px 0; /* Padding disesuaikan agar flow antar section enak */
     height: auto;
+    min-height: auto;
   }
 
-  .about-container {
+  /* Overlay Text Background - Diperkecil agar tidak mengganggu bacaan */
+  .about-background-text {
+    font-size: 5rem;
+    letter-spacing: 5px;
+    top: 20%; /* Geser sedikit ke atas */
+    opacity: 0.02;
+  }
+
+.about-container {
     width: 90%;
     text-align: center;
-    gap: 35px; 
+    /* SAMAKAN GAP DENGAN HERO (Hero tadi 20px) */
+    gap: 20px; 
     display: flex;
     flex-direction: column;
   }
 
-  .about-top-content {
+  /* Top Content: Gambar & Teks */
+ .about-top-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    /* SAMAKAN GAP DENGAN HERO */
+    gap: 20px; 
   }
 
   .about-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: 2; /* Teks di bawah gambar */
   }
 
-  .about-title { font-size: 1.8rem; }
-  .about-description { font-size: 0.95rem; padding: 0 15px; max-width: 100%; }
+.about-image {
+    order: 1;
+    margin-bottom: 0; /* Hilangkan margin biar gap container yang kerja */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-  .about-img-floating { width: 250px; }
+  /* Ukuran gambar disamakan dengan Hero (220px) */
+.about-img-floating { 
+    width: 100% !important; 
+    max-width: 220px !important; /* Angka sakti yang sama dengan Hero */
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+  }
 
+  /* Typography */
+  .about-badge {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    margin-bottom: 15px;
+  }
+
+  .about-title { 
+    font-size: 1.7rem; 
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .about-description { 
+    font-size: 0.9rem; 
+    padding: 0; 
+    max-width: 100%; 
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Stats Cards - Dibuat 1 kolom agar lega */
   .about-stats {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 12px;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px; /* Batasi lebar maksimal di HP */
     margin: 0 auto;
   }
 
   .stat-card {
-    padding: 15px 20px;
+    padding: 12px 14px;
     gap: 15px; 
-    min-height: 70px;
+    background: rgba(255, 255, 255, 0.03); /* Lebih subtle di mobile */
+    border-radius: 12px;
+    text-align: left; /* Icon & teks tetap rata kiri di dalam card */
   }
 
-  .stat-number { font-size: 1.3rem; }
-  .stat-label { font-size: 0.8rem; }
+  .stat-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .stat-icon-box svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stat-number { 
+    font-size: 1.2rem; 
+    line-height: 1;
+  }
+  
+  .stat-label { 
+    font-size: 0.75rem; 
+    margin-top: 2px;
+  }
+
+  /* CTA Link */
+  .about-cta {
+    font-size: 0.95rem;
+  }
+
+  /* Sembunyikan shape jika layar terlalu penuh (opsional) atau perkecil */
+  .about-shape {
+    width: 120px;
+    height: 120px;
+    opacity: 0.15;
+  }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
+

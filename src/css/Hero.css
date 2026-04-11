@@ -11,12 +11,13 @@
 }
 
 .hero-container {
-  width: 85%; /* Sesuai request: dikurangi jadi 85% */
-  max-width: 1440px; /* Disesuaikan agar pas di 19 inch, tidak terlalu lebar */
+  width: 85%;
+  max-width: 1440px; 
   margin: auto;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px; /* Gap sedikit dirapatkan */
+  /* FIX: Pakai minmax agar teks tidak menekan ukuran gambar */
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 50px; 
   align-items: center;
   z-index: 10;
 }
@@ -199,9 +200,11 @@
 }
 
 .hero-img {
-  width: 380px; /* Dikurangi dikit dari 450px */
+  width: 100%; /* Diubah ke 100% */
+  max-width: 380px; /* Dikunci keras di 380px */
   height: auto;
   object-fit: contain;
+  display: block;
   z-index: 5;
   position: relative;
   animation: float 6s ease-in-out infinite;
@@ -232,47 +235,128 @@
 }
 
 /* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE MOBILE OPTIMIZED --- */
 @media screen and (max-width: 768px) {
   .hero {
-    padding: 100px 0 40px 0;
+    padding: 80px 0 60px 0; /* Padding atas disesuaikan untuk navbar mobile */
     height: auto;
     min-height: 100vh;
+    display: flex;
+    align-items: flex-start; /* Agar konten tidak terlalu ke tengah bawah */
   }
   
   .hero-container {
     grid-template-columns: 1fr;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
     text-align: center;
-    gap: 30px;
-    width: 85%;
+    gap: 20px;
+    width: 90%; /* Sedikit lebih lebar di HP agar tidak terlalu sempit */
   }
 
+  /* Konten Teks */
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
 
-  .hero-greeting { font-size: 1.8rem; }
-  .hero-role { font-size: 1.5rem; }
-  .hero-description { font-size: 0.95rem; padding: 0 15px; max-width: 100%; }
+  .hero-greeting { 
+    font-size: 1.6rem; /* Lebih ramping */
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  
+  .hero-role { 
+    font-size: 1.4rem; 
+    margin-bottom: 15px;
+    justify-content: center;
+    letter-spacing: -0.5px;
+  }
 
-  .hero-socials { justify-content: center; gap: 12px; margin-bottom: 25px; }
-  .social-link { width: 36px; height: 36px; }
+  .hero-description { 
+    font-size: 0.9rem; 
+    padding: 0 10px; 
+    max-width: 100%; 
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
 
-  .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; gap: 12px; }
-  .btn-primary, .btn-secondary { width: 100%; padding: 12px; font-size: 1rem; }
+  /* Social Icons */
+  .hero-socials { 
+    justify-content: center; 
+    gap: 12px; 
+    margin-bottom: 25px; 
+  }
+  
+  .social-link { 
+    width: 38px; 
+    height: 38px; 
+    border-radius: 50px; /* Sedikit kotak melengkung agar terlihat modern */
+  }
 
-  .hero-visual { margin-bottom: 10px; }
-  .hero-img { width: 250px; }
+  /* Buttons - Dibuat berdampingan jika muat, atau tumpuk tipis */
+  .hero-buttons { 
+    flex-direction: row; /* Berdampingan agar hemat ruang vertikal */
+    justify-content: center;
+    width: 100%; 
+    gap: 10px; 
+  }
+  
+  .btn-primary, .btn-secondary { 
+    flex: 1; /* Ukuran sama rata kanan kiri */
+    padding: 12px 15px; 
+    font-size: 0.9rem; 
+    border-radius: 10px;
+    white-space: nowrap; /* Teks tidak turun ke bawah */
+  }
 
-  .hero-glass-card { right: 10%; bottom: -15px; font-size: 0.8rem; padding: 6px 12px; }
-  .hero-glass-card-2 { left: 10%; top: -15px; font-size: 0.8rem; padding: 6px 12px; }
+  /* Visual & Image */
+  .hero-visual { 
+    margin-bottom: 20px; 
+    width: 100%;
+  }
+  
+.hero-img { 
+    width: 100%; 
+    max-width: 220px; /* Dikunci keras di 220px */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  }
 
+  /* Floating Glass Cards - Dibuat lebih kecil dan rapi */
+  .hero-glass-card, .hero-glass-card-2 {
+    font-size: 0.75rem; 
+    padding: 6px 12px;
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+  }
+
+  .hero-glass-card { 
+    right: 5%; 
+    bottom: 5px; 
+  }
+  
+  .hero-glass-card-2 { 
+    left: 5%; 
+    top: 5px; 
+  }
+
+  /* Background Shapes - Diperkecil agar tidak menutupi konten */
   .shape-1, .shape-2 { 
-    width: 140px; 
-    height: 140px; 
-    animation-duration: 10s;
+    width: 100px; 
+    height: 100px; 
+    filter: blur(50px);
+    opacity: 0.25;
   }
+}
+
+/* Khusus HP sangat kecil (seperti iPhone SE / Galaxy Fold) */
+@media screen and (max-width: 380px) {
+  .hero-buttons {
+    flex-direction: column; /* Balik tumpuk jika layar sangat sempit */
+  }
+  .hero-greeting { font-size: 1.4rem; }
+  .hero-role { font-size: 1.2rem; }
 }
