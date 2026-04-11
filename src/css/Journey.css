@@ -119,7 +119,7 @@
   transition: all 0.3s ease;
   
   /* Neon Gradient Effect */
-  background: linear-gradient(to bottom, #fff, var(--accent-color), #6c5ce7);
+  background: linear-gradient(to bottom, #fff, white, #c3bbff);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
