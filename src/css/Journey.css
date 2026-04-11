@@ -183,15 +183,9 @@
   transition: 0.3s;
 }
 
-.journey-card:hover {
-  transform: translateY(-15px);
-  border-color: var(--accent-color);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-}
 
-.journey-card:hover::before {
-  opacity: 1;
-}
+
+
 
 .card-top {
   display: flex;
