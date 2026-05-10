@@ -12,7 +12,7 @@ const Projects = ({ onShowMore }) => { // Tambahkan props onShowMore agar bisa r
     { id: "02", title: "Class Web", desc: "A collaborative classroom website featuring student profiles.", tags: ["REACT", "JAVASCRIPT", "GSAP"], link: "https://allzxxopemula.github.io/x-rpl/", img: "imgproject/kelas.jpg" },
     { id: "03", title: "Allzxxo Ai", desc: "An intuitive web assistant providing smart, real-time answers and fluid dialogue within a distraction-free environment.", tags: ["HTML", "CSS", "JAVASCRIPT"], link: "https://alzai-delta.vercel.app/", img: "imgproject/ai.jpg" },
     { id: "04", title: "Allzxxo Finance", desc: "A finance application to record income and manage savings efficiently.", tags: ["PHP", "CSS", "MYSQL"], link: "https://allzxxofinance.page.gd", img: "imgproject/alzf.png" },
-    { id: "05", title: "Final Project", desc: "The last project in this list.", tags: ["NODE JS", "DATABASE"], link: "#", img: "imgproject/1.jpg" }
+    { id: "05", title: "Nusea Server", desc: "A dedicated Minecraft server community featuring custom gameplay and a stable environment.", tags: ["REACT", "CSS", "JAVASCRIPT"], link: "https://nusea.my.id", img: "imgproject/nusea.png" }
   ];
 
   const [visibleProjects, setVisibleProjects] = useState(3);
